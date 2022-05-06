@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class InteractionController : MonoBehaviour
@@ -12,7 +10,7 @@ public class InteractionController : MonoBehaviour
         Instance = this;
     }
 
-    public void winControllerFunction()
+    public void WinControllerFunction()
     {
         if (switchTurnController.myTurn)
         {

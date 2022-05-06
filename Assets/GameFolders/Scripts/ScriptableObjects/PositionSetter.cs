@@ -5,7 +5,6 @@ public class PositionSetter : ScriptableObject
 {
     #region PlayerRegion
     [Header("Player")]
-    [SerializeField] private Vector3 playerStartPos;
     [SerializeField] private Vector3 playerTargetPos;
     [SerializeField] private Vector3 playerMoneyPos;
 

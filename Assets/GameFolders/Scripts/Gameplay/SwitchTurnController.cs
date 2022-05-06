@@ -1,6 +1,7 @@
 using System.Collections;
 using UnityEngine;
 using DG.Tweening;
+using UnityEngine.PlayerLoop;
 
 public class SwitchTurnController : MonoBehaviour
 {
@@ -41,6 +42,25 @@ public class SwitchTurnController : MonoBehaviour
         playerStartPos = playerHand.transform.position;
     }
 
+    void Update()
+    {
+        if (LevelManager.gameState == GameState.Normal)
+            if (myTurn)
+                if (LeftMouseClicked)
+                {
+                    playerHand.transform.eulerAngles =
+                        Vector3.Lerp(playerHand.transform.eulerAngles, new Vector3(0, 0, 100), .01f);
+
+                    if (playerHand.transform.eulerAngles.z > 10)
+                    {
+                        particleSystem.emissionRate += .03f;
+                        particleSystem.emissionRate = Mathf.Clamp(particleSystem.emissionRate, 0, 15);
+                        //waterShapeSc.setBlendValue(-.015f);
+                    }
+                }
+    }
+
+
     public void PlayerTurn()
     {
         StartCoroutine(PlayerTurnCo());
@@ -60,7 +80,7 @@ public class SwitchTurnController : MonoBehaviour
         CinemachineBehaviour(posSetter.Camera3Pos, posSetter.Camera3Rot, 1.5f);
         if (GameManager.FirstLevel == 1) tutorialUI.SetActive(true);
 
-        playerHand.transform.DOMove(posSetter.PlayerTargetPos, 1f);
+        playerHand.transform.DOLocalMove(posSetter.PlayerTargetPos, 1f);
 
         yield return new WaitUntil(() => LeftMouseUp);
 

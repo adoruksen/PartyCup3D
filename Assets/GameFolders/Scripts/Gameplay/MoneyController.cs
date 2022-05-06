@@ -15,8 +15,8 @@ public class MoneyController : MonoBehaviour
     [SerializeField] private GameObject moneyPrefab;
 
     [Header("Lists")]
-    [SerializeField] List<GameObject> playerMoneyList = new List<GameObject>();
-    [SerializeField] List<GameObject> enemyMoneyList = new List<GameObject>();
+    [SerializeField] List<GameObject> playerMoneyList;
+    [SerializeField] List<GameObject> enemyMoneyList;
 
     public int PlayerMoneyCount => playerMoneyList.Count;
     public int EnemyMoneyCount => enemyMoneyList.Count;

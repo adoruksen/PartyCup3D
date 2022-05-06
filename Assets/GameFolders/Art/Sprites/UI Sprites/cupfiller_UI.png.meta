@@ -1,0 +1,627 @@
+fileFormatVersion: 2
+guid: 14ba837f285d1ad4b853626d487a1b70
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 1082470386630864638
+    second: cupfiller_UI_0
+  - first:
+      213: 6302318371432210056
+    second: cupfiller_UI_13
+  - first:
+      213: 8502840160324250494
+    second: cupfiller_UI_14
+  - first:
+      213: 2987180321927510810
+    second: cupfiller_UI_27
+  - first:
+      213: 3127769645723340682
+    second: cupfiller_UI_52
+  - first:
+      213: 1198421962192430663
+    second: cupfiller_UI_53
+  - first:
+      213: -673972153427902093
+    second: cupfiller_UI_54
+  - first:
+      213: -6630139638478111811
+    second: cupfiller_UI_55
+  - first:
+      213: -1769484129757473016
+    second: cupfiller_UI_56
+  - first:
+      213: -3190713282609818488
+    second: cupfiller_UI_57
+  - first:
+      213: 6260700920059537949
+    second: cupfiller_UI_58
+  - first:
+      213: 239271078771985731
+    second: cupfiller_UI_59
+  - first:
+      213: -8699902411978054079
+    second: cupfiller_UI_60
+  - first:
+      213: -6455550338027023869
+    second: cupfiller_UI_61
+  - first:
+      213: 6742118531640768372
+    second: cupfiller_UI_62
+  - first:
+      213: -8587120681437660593
+    second: cupfiller_UI_1
+  - first:
+      213: -2305367626812336713
+    second: cupfiller_UI_2
+  - first:
+      213: -1298512358242672107
+    second: cupfiller_UI_3
+  - first:
+      213: -2076369287720791237
+    second: cupfiller_UI_4
+  - first:
+      213: -1382996796852385844
+    second: cupfiller_UI_5
+  - first:
+      213: 725529104458763808
+    second: cupfiller_UI_6
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 2
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 0
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: iPhone
+    maxTextureSize: 8192
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Windows Store Apps
+    maxTextureSize: 8192
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: cupfiller_UI_0
+      rect:
+        serializedVersion: 2
+        x: 61
+        y: 1926
+        width: 135
+        height: 72
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: efe230bd415b50f00800000000000000
+      internalID: 1082470386630864638
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cupfiller_UI_13
+      rect:
+        serializedVersion: 2
+        x: 1142
+        y: 1774
+        width: 610
+        height: 255
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 88e92aeea25567750800000000000000
+      internalID: 6302318371432210056
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cupfiller_UI_14
+      rect:
+        serializedVersion: 2
+        x: 61
+        y: 1797
+        width: 135
+        height: 73
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e7b6d0a6318200670800000000000000
+      internalID: 8502840160324250494
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cupfiller_UI_27
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 1672
+        width: 135
+        height: 74
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a1bb6801da8947920800000000000000
+      internalID: 2987180321927510810
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cupfiller_UI_52
+      rect:
+        serializedVersion: 2
+        x: 1351
+        y: 1060
+        width: 648
+        height: 648
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a8fc690dbe1186b20800000000000000
+      internalID: 3127769645723340682
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cupfiller_UI_53
+      rect:
+        serializedVersion: 2
+        x: 67
+        y: 1560
+        width: 135
+        height: 72
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 746a183dc66a1a010800000000000000
+      internalID: 1198421962192430663
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cupfiller_UI_54
+      rect:
+        serializedVersion: 2
+        x: 43
+        y: 1256
+        width: 588
+        height: 194
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 371cc66b5e195a6f0800000000000000
+      internalID: -673972153427902093
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cupfiller_UI_55
+      rect:
+        serializedVersion: 2
+        x: 43
+        y: 976
+        width: 588
+        height: 194
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dbb764570230df3a0800000000000000
+      internalID: -6630139638478111811
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cupfiller_UI_56
+      rect:
+        serializedVersion: 2
+        x: 933
+        y: 1003
+        width: 107
+        height: 163
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8075d122f878177e0800000000000000
+      internalID: -1769484129757473016
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cupfiller_UI_57
+      rect:
+        serializedVersion: 2
+        x: 46
+        y: 660
+        width: 588
+        height: 195
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 884dbe1bc2f48b3d0800000000000000
+      internalID: -3190713282609818488
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cupfiller_UI_58
+      rect:
+        serializedVersion: 2
+        x: 925
+        y: 761
+        width: 139
+        height: 140
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d1a2c11f05a72e650800000000000000
+      internalID: 6260700920059537949
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cupfiller_UI_59
+      rect:
+        serializedVersion: 2
+        x: 1326
+        y: 295
+        width: 646
+        height: 644
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 34d8a3747cf025300800000000000000
+      internalID: 239271078771985731
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cupfiller_UI_60
+      rect:
+        serializedVersion: 2
+        x: 46
+        y: 332
+        width: 610
+        height: 255
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 146eb71b9dcb34780800000000000000
+      internalID: -8699902411978054079
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cupfiller_UI_61
+      rect:
+        serializedVersion: 2
+        x: 904
+        y: 499
+        width: 158
+        height: 158
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3021f38ab274966a0800000000000000
+      internalID: -6455550338027023869
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cupfiller_UI_62
+      rect:
+        serializedVersion: 2
+        x: 63
+        y: 50
+        width: 279
+        height: 235
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 477b6005511d09d50800000000000000
+      internalID: 6742118531640768372
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cupfiller_UI_1
+      rect:
+        serializedVersion: 2
+        x: 335
+        y: 1938
+        width: 618
+        height: 11
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f4a7f7b9c3b64d880800000000000000
+      internalID: -8587120681437660593
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cupfiller_UI_2
+      rect:
+        serializedVersion: 2
+        x: 339
+        y: 1839
+        width: 618
+        height: 11
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7b55a279b50b100e0800000000000000
+      internalID: -2305367626812336713
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cupfiller_UI_3
+      rect:
+        serializedVersion: 2
+        x: 335
+        y: 1740
+        width: 618
+        height: 12
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 512ad76d3e1cafde0800000000000000
+      internalID: -1298512358242672107
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cupfiller_UI_4
+      rect:
+        serializedVersion: 2
+        x: 341
+        y: 1635
+        width: 616
+        height: 10
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b331fd642214f23e0800000000000000
+      internalID: -2076369287720791237
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cupfiller_UI_6
+      rect:
+        serializedVersion: 2
+        x: 1648
+        y: 295
+        width: 324
+        height: 644
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 02ec87160e8911a00800000000000000
+      internalID: 725529104458763808
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 752333352530dcd4fb298703da183cd2
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -42,17 +42,17 @@ public abstract class BorderBase : MonoBehaviour
                 //parayý kontrol edecegim scriptteki toplama fonk
                 break;
 
-            //case MathOperation.Multiplication:
-            //    MoneyController.instance.AddMoney(MoneyController.PlayerMoneyCount * value -
-            //                                        MoneyController.PlayerMoneyCount);
-            //    //parayý kontrol edecegim scriptteki toplama fonk * value
-            //    break;
+            case MathOperation.Multiplication:
+                MoneyController.instance.AddMoney(MoneyController.instance.PlayerMoneyCount * value -
+                                                    MoneyController.instance.PlayerMoneyCount);
+                //parayý kontrol edecegim scriptteki toplama fonk * value
+                break;
 
-            //case MathOperation.Division:
-            //    MoneyController.instance.SubtractMoney(MoneyController.PlayerMoneyCount -
-            //                                           MoneyController.PlayerMoneyCount / value);
-            //    //parayý kontrol edecegim scriptteki çýkartma fonk toplam para sayýsý - toplam para sayýsý/value
-            //    break;
+            case MathOperation.Division:
+                MoneyController.instance.SubtractMoney(MoneyController.instance.PlayerMoneyCount -
+                                                       MoneyController.instance.PlayerMoneyCount / value);
+                //parayý kontrol edecegim scriptteki çýkartma fonk toplam para sayýsý - toplam para sayýsý/value
+                break;
 
             case MathOperation.Subtraction:
                 MoneyController.instance.SubtractMoney(value);
