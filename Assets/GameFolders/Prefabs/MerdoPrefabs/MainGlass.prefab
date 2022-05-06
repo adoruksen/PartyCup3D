@@ -9,8 +9,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3070861981467405355}
-  - component: {fileID: 907851672088829381}
-  - component: {fileID: 907851672088829380}
   m_Layer: 0
   m_Name: MainGlass
   m_TagString: Untagged
@@ -35,35 +33,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &907851672088829381
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 907851672088829382}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6c6c709bac7662145aa420c39b50c68a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  rotateValue: 0.49
-  ps: {fileID: 6300306134259442185}
-  waterSh: {fileID: 907851672088829380}
---- !u!114 &907851672088829380
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 907851672088829382}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1fa6eb2e141a1624caa80fec54ab8ff1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  WaterSkinMesh: {fileID: 242264349825343884}
-  overSc: {fileID: 0}
 --- !u!1 &1352985472267574853
 GameObject:
   m_ObjectHideFlags: 0
@@ -5813,7 +5782,6 @@ GameObject:
   - component: {fileID: 6300306134259442184}
   - component: {fileID: 6300306134259442185}
   - component: {fileID: 6300306134259442186}
-  - component: {fileID: 6300306134259442190}
   m_Layer: 0
   m_Name: Mud Particle System
   m_TagString: Untagged
@@ -10668,15 +10636,3 @@ ParticleSystemRenderer:
   m_Mesh2: {fileID: 0}
   m_Mesh3: {fileID: 0}
   m_MaskInteraction: 0
---- !u!114 &6300306134259442190
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6300306134259442180}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2bc6ca235e91a0e428607c0e5200db29, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 

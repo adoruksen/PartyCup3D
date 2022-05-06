@@ -4,15 +4,29 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    static int firstLevel;
+    public static int FirstLevel
     {
-        
+        get
+        {
+            if (!PlayerPrefs.HasKey("firstLevel"))
+            {
+                return 1;
+            }
+            return PlayerPrefs.GetInt("firstLevel");
+        }
+        set
+        {
+            firstLevel = value;
+            PlayerPrefs.SetInt("firstLevel", firstLevel);
+        }
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Awake()
     {
-        
+        if (!PlayerPrefs.HasKey("firstLevel"))
+        {
+            PlayerPrefs.SetInt("firstLevel", 0);
+        }
     }
 }
