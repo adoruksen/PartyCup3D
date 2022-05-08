@@ -29,8 +29,7 @@ public class SwitchTurnController : MonoBehaviour
 
     [Header("Water System")] 
     [SerializeField] private ParticleSystem particleSystem;
-
-    //[SerializeField] private WaterShape waterShape;
+    [SerializeField] private WaterShape waterShape;
 
 
     public bool LeftMouseClicked => Input.GetMouseButton(0);
@@ -38,8 +37,8 @@ public class SwitchTurnController : MonoBehaviour
 
     void Start()
     {
-        enemyStartPos = enemyHand.transform.position;
-        playerStartPos = playerHand.transform.position;
+        enemyStartPos = enemyHand.transform.localPosition;
+        playerStartPos = playerHand.transform.localPosition;
     }
 
     void Update()
@@ -48,14 +47,15 @@ public class SwitchTurnController : MonoBehaviour
             if (myTurn)
                 if (LeftMouseClicked)
                 {
-                    playerHand.transform.eulerAngles =
-                        Vector3.Lerp(playerHand.transform.eulerAngles, new Vector3(0, 0, 100), .01f);
+                    playerHand.transform.localEulerAngles =
+                        Vector3.Lerp(playerHand.transform.localEulerAngles, new Vector3(0, 0, 100), .01f);
 
-                    if (playerHand.transform.eulerAngles.z > 10)
+                    if (playerHand.transform.localEulerAngles.z > 10)
                     {
+                        Debug.Log("burda");
                         particleSystem.emissionRate += .03f;
                         particleSystem.emissionRate = Mathf.Clamp(particleSystem.emissionRate, 0, 15);
-                        //waterShapeSc.setBlendValue(-.015f);
+                        waterShape.SetBlendValue(-.015f);
                     }
                 }
     }
@@ -76,7 +76,7 @@ public class SwitchTurnController : MonoBehaviour
         myTurn = true;
         //Clear My EnemyTurn Position
 
-        enemyHand.transform.DOMove(enemyStartPos, .5f);
+        enemyHand.transform.DOLocalMove(enemyStartPos, .5f);
         CinemachineBehaviour(posSetter.Camera3Pos, posSetter.Camera3Rot, 1.5f);
         if (GameManager.FirstLevel == 1) tutorialUI.SetActive(true);
 
@@ -89,7 +89,7 @@ public class SwitchTurnController : MonoBehaviour
         tutorialUI.SetActive(false);
 
         playerHand.transform.DOLocalRotateQuaternion(Quaternion.identity, .75f).OnComplete(() =>
-            playerHand.transform.DOMove(playerStartPos, 2)).OnStart(() =>
+            playerHand.transform.DOLocalMove(playerStartPos, 2)).OnStart(() =>
             CinemachineBehaviour(posSetter.Camera2Pos, posSetter.Camera2Rot, 1.5f));
 
         yield return new WaitForSeconds(1);
@@ -103,7 +103,7 @@ public class SwitchTurnController : MonoBehaviour
         //Clear My Hand Position
         var t = Random.Range(2f, 4.1f);
 
-        enemyHand.transform.DOMove(posSetter.EnemyTargetPos, 1f).OnComplete(() =>
+        enemyHand.transform.DOLocalMove(posSetter.EnemyTargetPos, 1f).OnComplete(() =>
         {
             var f = 1;
 
@@ -113,7 +113,7 @@ public class SwitchTurnController : MonoBehaviour
             }).OnComplete(() =>
             {
                 //handEnemyRotateGlass.RotateFunctionFinish(enemyHand.transform);
-                enemyHand.transform.DOMove(enemyStartPos, 1);
+                enemyHand.transform.DOLocalMove(enemyStartPos, 1);
                 if (LevelManager.gameState == GameState.Normal) PlayerTurn();
             });
         });

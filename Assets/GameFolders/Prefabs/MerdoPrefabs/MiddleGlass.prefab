@@ -9,8 +9,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 745347913840938069}
-  - component: {fileID: 3196626648486510011}
-  - component: {fileID: 3196626648486510010}
+  - component: {fileID: 1125834587}
+  - component: {fileID: 1125834586}
   m_Layer: 0
   m_Name: MiddleGlass
   m_TagString: Untagged
@@ -27,7 +27,7 @@ Transform:
   m_GameObject: {fileID: 3196626648486510008}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -1.45, y: 0, z: 0}
-  m_LocalScale: {x: 1.42, y: 1.42, z: 1.42}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4127814023464428673}
   - {fileID: 7934814589846158859}
@@ -35,7 +35,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &3196626648486510011
+--- !u!114 &1125834587
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -44,12 +44,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 3196626648486510008}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1fa6eb2e141a1624caa80fec54ab8ff1, type: 3}
+  m_Script: {fileID: 11500000, guid: f7057429411555a4c8dafd184932968f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  WaterSkinMesh: {fileID: 2565177591381623282}
-  overSc: {fileID: 3196626648486510010}
---- !u!114 &3196626648486510010
+  waterSkinMesh: {fileID: 2565177591381623282}
+  overflowSc: {fileID: 1125834586}
+--- !u!114 &1125834586
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -58,11 +58,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 3196626648486510008}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 342916f58272e664abd00a492e1b3487, type: 3}
+  m_Script: {fileID: 11500000, guid: fc67b8869a6ba51428438653a0cbe22d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   glassMesh: {fileID: 2565177591381623282}
-  ps: {fileID: 4522257819217871499}
+  particleSystem: {fileID: 4522257819217871499}
 --- !u!1 &3603759686702693947
 GameObject:
   m_ObjectHideFlags: 0
@@ -6292,7 +6292,7 @@ SkinnedMeshRenderer:
   m_Mesh: {fileID: -6564086670116265437, guid: ab4dbedc84dd11346af7b024e87ff2f7, type: 3}
   m_Bones: []
   m_BlendShapeWeights:
-  - 50
+  - 5
   m_RootBone: {fileID: 0}
   m_AABB:
     m_Center: {x: 0, y: 0, z: 0.12171395}
