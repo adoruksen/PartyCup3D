@@ -34,7 +34,7 @@ public class MoneyCaseController : MonoBehaviour
     {
         var a = 1;
         var temp = 0;
-        var valueBorder = PlayerPrefs.GetInt("valueBorder");
+        var valueBorder = 0;
         DOTween.To(() => a, x => a = x, 0, 3).OnUpdate(() =>
         {
             temp++;

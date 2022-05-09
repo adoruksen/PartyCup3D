@@ -43,7 +43,6 @@ public class MoneyController : MonoBehaviour
     {
         if (SwitchTurnController.instance.myTurn)
         {
-            
             var a = 1;
             var temp = 0;
             var valueBorder = 0;

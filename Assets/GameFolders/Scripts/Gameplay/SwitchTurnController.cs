@@ -76,8 +76,9 @@ public class SwitchTurnController : MonoBehaviour
 
     IEnumerator PlayerTurnCo()
     {
-        CinemachineBehaviour(posSetter.Camera3Pos, posSetter.Camera3Rot, 1.5f);
         myTurn = true;
+
+        CinemachineBehaviour(posSetter.Camera3Pos, posSetter.Camera3Rot, 1.5f);
 
         playerHand.transform.DOLocalMove(posSetter.PlayerTargetPos, 1f).OnComplete(() =>
         {
