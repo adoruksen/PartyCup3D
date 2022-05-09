@@ -20,6 +20,8 @@ public class InteractionController : MonoBehaviour
         else
         {
             Debug.Log("KAZANDIK");
+            MoneyCaseController.instance.MoneyOpener(MoneyController.instance.PlayerMoneyCount);
+
         }
     }
 

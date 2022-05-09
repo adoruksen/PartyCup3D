@@ -31,6 +31,7 @@ public class SwitchTurnController : MonoBehaviour
     [SerializeField] private ParticleSystem particleSystem;
     [SerializeField] private WaterShape waterShape;
     [SerializeField] private EnemyHandController enemyHandControllerSc;
+    private ParticleSystem.EmissionModule emModule;
 
 
     public bool LeftMouseClicked => Input.GetMouseButton(0);
@@ -44,7 +45,6 @@ public class SwitchTurnController : MonoBehaviour
 
     void Update()
     {
-        Debug.Log(GameManager.FirstLevel);
         if (LevelManager.gameState == GameState.Normal)
             if (myTurn)
                 if (LeftMouseClicked)
@@ -55,8 +55,9 @@ public class SwitchTurnController : MonoBehaviour
 
                     if (playerHand.transform.localEulerAngles.z > 10)
                     {
-                        particleSystem.emissionRate += .2f;
-                        particleSystem.emissionRate = Mathf.Clamp(particleSystem.emissionRate, 0, 20);
+                        emModule = particleSystem.emission;
+                        emModule.rateOverTimeMultiplier += .2f;
+                        emModule.rateOverTimeMultiplier = Mathf.Clamp(emModule.rateOverTimeMultiplier, 0, 20);
                         waterShape.SetBlendValue(-.015f);
                     }
                 }
@@ -85,7 +86,7 @@ public class SwitchTurnController : MonoBehaviour
 
 
         yield return new WaitUntil(() => LeftMouseUp);
-        particleSystem.emissionRate = 0;
+        emModule.rateOverTimeMultiplier = 0;
         GameManager.FirstLevel++;
         playerHand.transform.DOLocalRotateQuaternion(Quaternion.identity, .75f).OnComplete(() =>
             playerHand.transform.DOLocalMove(playerStartPos, 2)).OnStart(() =>

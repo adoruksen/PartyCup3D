@@ -27,7 +27,13 @@ public class MoneyController : MonoBehaviour
     public int EnemyMoneyCount => enemyMoneyList.Count;
 
 
-
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.A))
+        {
+            MoneyCaseController.instance.MoneyOpener(150);
+        }
+    }
     private void Awake()
     {
         instance = this;

@@ -9,13 +9,16 @@ public class OverflowWater : MonoBehaviour
 
     [SerializeField] SkinnedMeshRenderer glassMesh;
     [SerializeField] ParticleSystem particleSystem;
+    private ParticleSystem.EmissionModule emModule;
+
 
     public static bool gameOver = false;
 
 
     void Start()
     {
-        particleSystem.emissionRate = 0;
+        emModule = particleSystem.emission;
+        emModule.rateOverTimeMultiplier = 0;
     }
 
     public void OverflowStart()
@@ -29,7 +32,7 @@ public class OverflowWater : MonoBehaviour
 
         DOTween.To(() => particleRate, x => particleRate = x, 0, 3).OnUpdate(() =>
         {
-            particleSystem.emissionRate = particleRate;
+            emModule.rateOverTimeMultiplier = particleRate;
         });
 
     }

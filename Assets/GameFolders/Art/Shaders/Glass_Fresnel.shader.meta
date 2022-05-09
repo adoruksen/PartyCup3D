@@ -1,0 +1,11 @@
+fileFormatVersion: 2
+guid: 01b38c48d63b2144a98b409cca96708c
+ShaderImporter:
+  externalObjects: {}
+  defaultTextures:
+  - _glassReflect: {fileID: 2800000, guid: 7964f9ce035fd3d4d97145d2aac597f9, type: 3}
+  nonModifiableTextures: []
+  preprocessorOverride: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
