@@ -9,25 +9,22 @@ public class MoneyCaseController : MonoBehaviour
 
     [SerializeField] private List<GameObject> moneyAmount;
 
-    private int levelMoney=10;
+    private int levelMoney = 10;
 
     void Awake()
     {
         instance = this;
         OpenMoneys();
     }
-    
- 
+
+
     public void MoneyOpener(int count)
     {
-        //açýk deðilse aç, açýksa i yi arttýr
+        //a??k de?ilse a?, a??ksa i yi artt?r
 
         //count/levelMoney
 
-        StartCoroutine(Opener(count));
-
-
-
+        StartCoroutine(Opener(count + PlayerPrefs.GetInt("valueBorder")));
     }
 
     IEnumerator Opener(int count)
@@ -38,26 +35,30 @@ public class MoneyCaseController : MonoBehaviour
         DOTween.To(() => a, x => a = x, 0, 3).OnUpdate(() =>
         {
             temp++;
-            if (temp % 5 == 0 && valueBorder < count/levelMoney/*moneyAmount.Count*/)
+            if (temp % 5 == 0 && valueBorder < count / levelMoney) // moneyAmount.Count)
             {
-                if (!moneyAmount[valueBorder].activeInHierarchy)
+                if (!moneyAmount[PlayerPrefs.GetInt("valueBorder")].activeInHierarchy && moneyAmount.Count >= valueBorder)
                 {
-                    moneyAmount[valueBorder].SetActive(true);
+                    Debug.LogWarning(PlayerPrefs.GetInt("valueBorder"));
+                    moneyAmount[PlayerPrefs.GetInt("valueBorder")].SetActive(true);
                 }
                 valueBorder++;
-                PlayerPrefs.SetInt("valueBorder",PlayerPrefs.GetInt("valueBorder")+1);
+                PlayerPrefs.SetInt("valueBorder", PlayerPrefs.GetInt("valueBorder") + 1);
             }
         });
-      
 
         yield return new WaitForSeconds(.1f);
     }
 
     private void OpenMoneys()
     {
-        for (int i = 0; i < PlayerPrefs.GetInt("valueBorder"); i++)
+        if (moneyAmount.Count >= PlayerPrefs.GetInt("valueBorder"))
         {
-            moneyAmount[i].SetActive(true);
+            for (int i = 0; i < PlayerPrefs.GetInt("valueBorder"); i++)
+            {
+                moneyAmount[i].SetActive(true);
+            }
         }
+        
     }
 }

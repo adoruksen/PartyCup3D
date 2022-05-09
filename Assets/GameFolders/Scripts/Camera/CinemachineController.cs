@@ -6,13 +6,17 @@ using UnityEngine;
 [RequireComponent(typeof(CinemachineVirtualCamera))]
 public class CinemachineController : MonoBehaviour
 {
+    [Header("Cinemachine Things")]
     private CinemachineComposer composer;
-    [SerializeField] private PositionSetter posSetter;
     private CinemachineTransposer transposer;
-
     private CinemachineVirtualCamera vCam;
-
     [NonSerialized] public float vCamFov;
+
+    [Header("Others")]
+    [SerializeField] private PositionSetter posSetter;
+
+    [SerializeField] private GameObject basketTarget;
+
 
     private void Start()
     {
@@ -34,6 +38,14 @@ public class CinemachineController : MonoBehaviour
     {
         var rot = isAddition ? composer.m_TrackedObjectOffset + target : target;
         DOTween.To(() => composer.m_TrackedObjectOffset, x => composer.m_TrackedObjectOffset = x, rot, duration);
+    }
+
+    public void FinishScene()
+    {
+        vCam.m_LookAt = basketTarget.transform;
+        vCam.m_Follow = basketTarget.transform;
+
+
     }
 
     private void Update()

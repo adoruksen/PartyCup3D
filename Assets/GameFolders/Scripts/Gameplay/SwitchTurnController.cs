@@ -94,13 +94,12 @@ public class SwitchTurnController : MonoBehaviour
             CinemachineBehaviour(posSetter.Camera2Pos, posSetter.Camera2Rot, 1.5f));
 
         yield return new WaitForSeconds(1);
+        myTurn = false;
         if (LevelManager.gameState == GameState.Normal) EnemyTurn();
     }
 
     IEnumerator EnemyTurnCo()
     {
-        myTurn = false;
-
         var t = Random.Range(2f, 4.1f);
 
         enemyHand.transform.parent.DOLocalMove(posSetter.EnemyTargetPos, 1f).OnComplete(() =>
@@ -113,8 +112,11 @@ public class SwitchTurnController : MonoBehaviour
             }).OnComplete(() =>
             {
                 enemyHandControllerSc.RotateFunctionFinish(enemyHand.transform);
-                enemyHand.transform.parent.DOLocalMove(enemyStartPos, 1);
-                if (LevelManager.gameState == GameState.Normal) PlayerTurn();
+                enemyHand.transform.parent.DOLocalMove(enemyStartPos, 1).OnComplete(() =>
+                {
+                    myTurn = true;
+                    if (LevelManager.gameState == GameState.Normal) PlayerTurn();
+                });
             });
         });
 

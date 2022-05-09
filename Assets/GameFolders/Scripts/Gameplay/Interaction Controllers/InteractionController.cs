@@ -1,8 +1,11 @@
+using System.Collections;
+using UnityEditor;
 using UnityEngine;
 
 public class InteractionController : MonoBehaviour
 {
     [SerializeField] SwitchTurnController switchTurnController;
+    [SerializeField] private PositionSetter posSetter;
 
     public static InteractionController Instance;
     private void Start()
@@ -20,9 +23,18 @@ public class InteractionController : MonoBehaviour
         else
         {
             Debug.Log("KAZANDIK");
-            MoneyCaseController.instance.MoneyOpener(MoneyController.instance.PlayerMoneyCount);
+            StartCoroutine(WinStatusCo());
 
         }
+    }
+
+    IEnumerator WinStatusCo()
+    {
+        CinemachineController.instance.FinishScene();
+        CinemachineController.instance.ChangeCamPosInTime(posSetter.Camera4Pos, .75f, false);
+        CinemachineController.instance.ChangeCamRotInTime(posSetter.Camera4Rot, .75f, false);
+        yield return new WaitForSeconds(1);
+        MoneyCaseController.instance.MoneyOpener(MoneyController.instance.PlayerMoneyCount);
     }
 
 

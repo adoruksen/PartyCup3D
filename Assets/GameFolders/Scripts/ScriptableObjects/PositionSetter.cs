@@ -48,5 +48,13 @@ public class PositionSetter : ScriptableObject
 
     public Vector3 Camera3Pos => camera3Pos;
     public Vector3 Camera3Rot => camera3Rot;
+
+
+    [Header("Camera 4")]
+    [SerializeField] private Vector3 camera4Pos;
+    [SerializeField] private Vector3 camera4Rot;
+
+    public Vector3 Camera4Pos => camera4Pos;
+    public Vector3 Camera4Rot => camera4Rot;
     #endregion
 }
