@@ -145,8 +145,11 @@ public class MoneyController : MonoBehaviour
                 if (temp % 5 == 0 && valueBorder < value)
                 {
                     playerMoneyList[PlayerMoneyCount - 1].transform
-                        .DOLocalMove(new Vector3(Random.Range(-10, 10), 10, Random.Range(-2, 2)), 1f);
-                    playerMoneyList.RemoveAt(PlayerMoneyCount - 1);
+                        .DOLocalMove(new Vector3(Random.Range(-10, 10), 10, Random.Range(-2, 2)), 1f).OnComplete(() =>
+                        {
+                            playerMoneyList[PlayerMoneyCount-1].SetActive(false);
+                            playerMoneyList.RemoveAt(PlayerMoneyCount - 1);
+                        });
                     valueBorder++;
                 }
                 playerMoneyCountText.text = $"${PlayerMoneyCount}";
@@ -170,8 +173,12 @@ public class MoneyController : MonoBehaviour
                 if (temp % 5 == 0 && valueBorder < value)
                 {
                     enemyMoneyList[EnemyMoneyCount - 1].transform
-                        .DOLocalMove(new Vector3(5, 10, Random.Range(-2, 2)), 1f);
-                    enemyMoneyList.RemoveAt(EnemyMoneyCount - 1);
+                        .DOLocalMove(new Vector3(5, 10, Random.Range(-2, 2)), 1f).OnComplete(() =>
+                        {
+                            enemyMoneyList[EnemyMoneyCount - 1].SetActive(false);
+                            enemyMoneyList.RemoveAt(EnemyMoneyCount - 1);
+
+                        });
                     valueBorder++;
                 }
                 enemyMoneyCountText.text = $"${EnemyMoneyCount}";
