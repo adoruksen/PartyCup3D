@@ -1,4 +1,5 @@
 using UnityEngine;
+using DG.Tweening;
 
 public class EnemyHandController : MonoBehaviour
 {
@@ -17,7 +18,8 @@ public class EnemyHandController : MonoBehaviour
     public void RotateFunctionFinish(Transform hand)
     {
         particleSystem.emissionRate = 0;
-        hand.transform.localEulerAngles = Vector3.zero;
+        //hand.transform.localEulerAngles = Vector3.zero;
+        hand.transform.DOLocalRotateQuaternion(Quaternion.identity, .75f);
 
     }
 }

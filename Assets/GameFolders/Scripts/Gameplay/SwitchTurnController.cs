@@ -73,14 +73,15 @@ public class SwitchTurnController : MonoBehaviour
 
     IEnumerator PlayerTurnCo()
     {
-        myTurn = true;
 
         CinemachineBehaviour(posSetter.Camera3Pos, posSetter.Camera3Rot, 1.5f);
+        myTurn = true;
         if (GameManager.FirstLevel == 1) tutorialUI.SetActive(true);
 
         playerHand.transform.DOLocalMove(posSetter.PlayerTargetPos, 1f);
 
         yield return new WaitUntil(() => LeftMouseUp);
+        myTurn = false;
 
         particleSystem.emissionRate = 0;
         GameManager.FirstLevel++;
@@ -96,7 +97,7 @@ public class SwitchTurnController : MonoBehaviour
 
     IEnumerator EnemyTurnCo()
     {
-        myTurn = false;
+        //myTurn = false;
 
         var t = Random.Range(2f, 4.1f);
 
