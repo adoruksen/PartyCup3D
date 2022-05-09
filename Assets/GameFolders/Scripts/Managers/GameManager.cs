@@ -26,7 +26,7 @@ public class GameManager : MonoBehaviour
     {
         if (!PlayerPrefs.HasKey("firstLevel"))
         {
-            PlayerPrefs.SetInt("firstLevel", 0);
+            PlayerPrefs.SetInt("firstLevel", 1);
         }
     }
 }
