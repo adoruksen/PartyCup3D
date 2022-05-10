@@ -27,6 +27,8 @@ public class SwitchTurnController : MonoBehaviour
     [Header("Boolean")]
     public bool myTurn;
 
+    public bool cameraMoveFinished;
+
     [Header("Water System")] 
     [SerializeField] private ParticleSystem particleSystem;
     [SerializeField] private WaterShape waterShape;
@@ -53,7 +55,7 @@ public class SwitchTurnController : MonoBehaviour
                     playerHand.transform.localEulerAngles =
                         Vector3.Lerp(playerHand.transform.localEulerAngles, new Vector3(0, 0, 100), .01f);
 
-                    if (playerHand.transform.localEulerAngles.z > 10)
+                    if (playerHand.transform.localEulerAngles.z > 50)
                     {
                         emModule = particleSystem.emission;
                         emModule.rateOverTimeMultiplier += .2f;
@@ -77,6 +79,7 @@ public class SwitchTurnController : MonoBehaviour
     IEnumerator PlayerTurnCo()
     {
         myTurn = true;
+        cameraMoveFinished = false;
 
         CinemachineBehaviour(posSetter.Camera3Pos, posSetter.Camera3Rot, 1.5f);
 
@@ -96,6 +99,8 @@ public class SwitchTurnController : MonoBehaviour
         yield return new WaitForSeconds(1);
         myTurn = false;
         if (LevelManager.gameState == GameState.Normal) EnemyTurn();
+        cameraMoveFinished = true;
+
     }
 
     IEnumerator EnemyTurnCo()

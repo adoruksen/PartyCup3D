@@ -38,8 +38,8 @@ public class MoneyCaseController : MonoBehaviour
             {
                 if (!moneyAmount[PlayerPrefs.GetInt("valueBorder")].activeInHierarchy && moneyAmount.Count >= valueBorder)
                 {
-                    Debug.LogWarning(PlayerPrefs.GetInt("valueBorder"));
                     moneyAmount[PlayerPrefs.GetInt("valueBorder")].SetActive(true);
+                    moneyAmount[PlayerPrefs.GetInt("valueBorder")].transform.DOPunchScale(new Vector3(.15f, .15f, .15f), .25f, 2);
                 }
                 valueBorder++;
                 PlayerPrefs.SetInt("valueBorder", PlayerPrefs.GetInt("valueBorder") + 1);

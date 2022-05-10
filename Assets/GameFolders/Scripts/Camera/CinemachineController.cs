@@ -18,8 +18,10 @@ public class CinemachineController : MonoBehaviour
     [SerializeField] private GameObject basketTarget;
 
 
-    private void Start()
+    private void Awake()
     {
+        instance = this;
+
         vCam = GetComponent<CinemachineVirtualCamera>();
         vCamFov = vCam.m_Lens.FieldOfView;
         transposer = vCam.GetCinemachineComponent<CinemachineTransposer>();
@@ -44,32 +46,21 @@ public class CinemachineController : MonoBehaviour
     {
         vCam.m_LookAt = basketTarget.transform;
         vCam.m_Follow = basketTarget.transform;
-
-
     }
 
-    private void Update()
+    public void NotFirstLevel(Vector3 posTarget, Vector3 rotTarget)
     {
-        //if (Input.GetKeyDown(KeyCode.A))
-        //{
-        //    ChangeCamPosInTime(posSetter.Camera2Pos, 2f, false);
-        //    ChangeCamRotInTime(posSetter.Camera2Rot, 2f, false);
-        //}
-        //else if (Input.GetKeyUp(KeyCode.A))
-        //{
-        //    ChangeCamPosInTime(posSetter.Camera1Pos, 2f, false);
-        //    ChangeCamRotInTime(posSetter.Camera1Rot, 2f, false);
-        //}
+        transposer.m_FollowOffset = posTarget;
+        composer.m_TrackedObjectOffset = rotTarget;
     }
+
+
 
     #region Singleton Pattern
 
     public static CinemachineController instance;
 
-    private void Awake()
-    {
-        instance = this;
-    }
+
 
     #endregion
 }

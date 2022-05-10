@@ -1,3 +1,4 @@
+using System.Collections;
 using DG.Tweening;
 using UnityEngine;
 using System.Collections.Generic;
@@ -11,9 +12,12 @@ public class MoneyController : MonoBehaviour
     [Header("MoneyParents")]
     [SerializeField] private Transform enemyParent;
     [SerializeField] private Transform playerParent;
+    [SerializeField] private Transform enemySubtractPos;
+    [SerializeField] private Transform playerSubtractPos;
 
-    [Header("Prefab")]
+    [Header("Money Prefab")]
     [SerializeField] private GameObject moneyPrefab;
+    private Rigidbody moneyRigidbody;
 
     [Header("Lists")]
     [SerializeField] List<GameObject> playerMoneyList;
@@ -27,13 +31,6 @@ public class MoneyController : MonoBehaviour
     public int EnemyMoneyCount => enemyMoneyList.Count;
 
 
-    void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.A))
-        {
-            MoneyCaseController.instance.MoneyOpener(150);
-        }
-    }
     private void Awake()
     {
         instance = this;
@@ -43,52 +40,10 @@ public class MoneyController : MonoBehaviour
     {
         if (SwitchTurnController.instance.myTurn)
         {
-            var a = 1;
-            var temp = 0;
-            var valueBorder = 0;
-            DOTween.To(() => a, x => a = x, 0, 3).OnUpdate(() =>
-            {
-                temp++;
-                if (temp % 5 == 0 && valueBorder < value)
-                {
-                    //if (PlayerMoneyCount == 0)
-                    //{
-                    //    Debug.Log("kayýp");
-                    //    playerMoneyList
-                    //}
-                    var newMoney = Instantiate(moneyPrefab, playerParent);
-
-                    var pos = new Vector3(
-                        playerMoneyList[PlayerMoneyCount - 1].transform
-                            .position.x,
-                        playerMoneyList[PlayerMoneyCount - 1].transform
-                            .position.y + .03f,
-                        playerMoneyList[PlayerMoneyCount - 1].transform
-                            .position.z);
-
-                    if (playerMoneyList[PlayerMoneyCount - 1].transform
-                            .localPosition.x < +0.25f && PlayerMoneyCount > 124)
-                        pos = new Vector3(
-                            playerMoneyList[PlayerMoneyCount - 1]
-                                .transform.position.x + .5f,
-                            playerMoneyList[0].transform.position.y % 125 + .01f,
-                            playerMoneyList[PlayerMoneyCount - 1]
-                                .transform.position.z);
-                    newMoney.transform.position = pos;
-                    newMoney.transform.DOPunchScale(new Vector3(.15f, .15f, .15f), .25f, 2);
-                    playerMoneyList.Add(newMoney);
-                    valueBorder++;
-                }
-                playerMoneyCountText.text = $"${PlayerMoneyCount}";
-            });
+            StartCoroutine(PlayerMoneyAdder(value));
         }
         else
         {
-            //if (EnemyMoneyCount == 0)
-            //{
-            //    Debug.Log("kayýp");
-            //    return;
-            //}
             var a = 1;
             var temp = 0;
             var valueBorder = 0;
@@ -131,11 +86,10 @@ public class MoneyController : MonoBehaviour
     {
         if (SwitchTurnController.instance.myTurn)
         {
-            //if (PlayerMoneyCount == 0)
-            //{
-            //    Debug.Log("kayýp");
-            //    return;
-            //}
+            StartCoroutine(PlayerMoneySubtracter(value));
+        }
+        else
+        {
             var a = 1;
             var temp = 0;
             var valueBorder = 0;
@@ -144,46 +98,86 @@ public class MoneyController : MonoBehaviour
                 temp++;
                 if (temp % 5 == 0 && valueBorder < value)
                 {
-                    playerMoneyList[PlayerMoneyCount - 1].transform
-                        .DOLocalMove(new Vector3(Random.Range(-10, 10), 10, Random.Range(-2, 2)), 1f).OnComplete(() =>
-                        {
-                            playerMoneyList[PlayerMoneyCount-1].SetActive(false);
-                            playerMoneyList.RemoveAt(PlayerMoneyCount - 1);
-                        });
+
+                    moneyRigidbody =enemyMoneyList[EnemyMoneyCount - 1].GetComponent<Rigidbody>();
+                    moneyRigidbody.isKinematic = false;
+                    moneyRigidbody.AddForce(60f, 350f, enemyMoneyList[EnemyMoneyCount - 1].transform.position.z);
+                    //enemyMoneyList[EnemyMoneyCount - 1].transform.DORotate(new Vector3(0, 0, -180), 1f);
+                    //enemyMoneyList[EnemyMoneyCount - 1].SetActive(false);
+                    enemyMoneyList.RemoveAt(EnemyMoneyCount - 1);
+
                     valueBorder++;
                 }
-                playerMoneyCountText.text = $"${PlayerMoneyCount}";
-            });
 
-        }
-        else
-        {
-            //if (EnemyMoneyCount == 0)
-            //{
-            //    Debug.Log("kayýp");
-            //    return;
-            //}
-
-            var a = 1;
-            var temp = 0;
-            var valueBorder = 0;
-            DOTween.To(() => a, x => a = x, 0, 10).OnUpdate(() =>
-            {
-                temp++;
-                if (temp % 5 == 0 && valueBorder < value)
-                {
-                    enemyMoneyList[EnemyMoneyCount - 1].transform
-                        .DOLocalMove(new Vector3(5, 10, Random.Range(-2, 2)), 1f).OnComplete(() =>
-                        {
-                            enemyMoneyList[EnemyMoneyCount - 1].SetActive(false);
-                            enemyMoneyList.RemoveAt(EnemyMoneyCount - 1);
-
-                        });
-                    valueBorder++;
-                }
                 enemyMoneyCountText.text = $"${EnemyMoneyCount}";
 
             });
         }
+    }
+
+    IEnumerator PlayerMoneyAdder(int value)
+    {
+        yield return new WaitUntil(() => SwitchTurnController.instance.cameraMoveFinished);
+
+        var a = 1;
+        var temp = 0;
+        var valueBorder = 0;
+        DOTween.To(() => a, x => a = x, 0, 3).OnUpdate(() =>
+        {
+            temp++;
+            if (temp % 5 == 0 && valueBorder < value)
+            {
+                var newMoney = Instantiate(moneyPrefab, playerParent);
+
+                var pos = new Vector3(
+                    playerMoneyList[PlayerMoneyCount - 1].transform
+                        .position.x,
+                    playerMoneyList[PlayerMoneyCount - 1].transform
+                        .position.y + .03f,
+                    playerMoneyList[PlayerMoneyCount - 1].transform
+                        .position.z);
+
+                if (playerMoneyList[PlayerMoneyCount - 1].transform
+                        .localPosition.x < +0.25f && PlayerMoneyCount > 124)
+                    pos = new Vector3(
+                        playerMoneyList[PlayerMoneyCount - 1]
+                            .transform.position.x + .5f,
+                        playerMoneyList[0].transform.position.y % 125 + .01f,
+                        playerMoneyList[PlayerMoneyCount - 1]
+                            .transform.position.z);
+                newMoney.transform.position = pos;
+                newMoney.transform.DOPunchScale(new Vector3(.15f, .15f, .15f), .25f, 2);
+                playerMoneyList.Add(newMoney);
+                valueBorder++;
+            }
+            playerMoneyCountText.text = $"${PlayerMoneyCount}";
+        });
+    }
+
+    IEnumerator PlayerMoneySubtracter(int value)
+    {
+        yield return new WaitUntil(() => SwitchTurnController.instance.cameraMoveFinished);
+
+        var a = 1;
+        var temp = 0;
+        var valueBorder = 0;
+        DOTween.To(() => a, x => a = x, 0, 3).OnUpdate(() =>
+        {
+            temp++;
+            if (temp % 5 == 0 && valueBorder < value)
+            {
+                moneyRigidbody = playerMoneyList[PlayerMoneyCount - 1].GetComponent<Rigidbody>();
+                moneyRigidbody.isKinematic = false;
+                moneyRigidbody.AddForce(-60f, 350f, playerMoneyList[PlayerMoneyCount - 1].transform.position.z);
+                //playerMoneyList[PlayerMoneyCount - 1].transform.DORotate(new Vector3(0, 0, 180), 1f);
+                playerMoneyList.RemoveAt(PlayerMoneyCount - 1);
+
+                //playerMoneyList[PlayerMoneyCount - 1].GetComponent<Animator>().enabled = true;
+                valueBorder++;
+
+                //playerMoneyList[PlayerMoneyCount - 1].SetActive(false);
+            }
+            playerMoneyCountText.text = $"${PlayerMoneyCount}";
+        });
     }
 }

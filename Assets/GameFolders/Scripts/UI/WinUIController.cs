@@ -16,7 +16,7 @@ public class WinUIController : MonoBehaviour
     public void NextButtonHandle()
     {
         LevelManager.gameState = GameState.Finish;
-        //GameManager.Level++;
+        GameManager.Level++;
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 }
