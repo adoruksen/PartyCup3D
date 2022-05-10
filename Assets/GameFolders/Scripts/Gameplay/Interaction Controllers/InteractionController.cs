@@ -19,6 +19,7 @@ public class InteractionController : MonoBehaviour
         {
 
             Debug.Log("KAYBETTIK");
+            StartCoroutine(LoseStatusCo());
         }
         else
         {
@@ -30,13 +31,20 @@ public class InteractionController : MonoBehaviour
 
     IEnumerator WinStatusCo()
     {
+        yield return new WaitForSeconds(2);
         CinemachineController.instance.FinishScene();
-        CinemachineController.instance.ChangeCamPosInTime(posSetter.Camera4Pos, .75f, false);
-        CinemachineController.instance.ChangeCamRotInTime(posSetter.Camera4Rot, .75f, false);
-        yield return new WaitForSeconds(1);
+        CinemachineController.instance.ChangeCamPosInTime(posSetter.Camera4Pos, 1.5f, false);
+        CinemachineController.instance.ChangeCamRotInTime(posSetter.Camera4Rot, 1.5f, false);
+        yield return new WaitForSeconds(2);
         MoneyCaseController.instance.MoneyOpener(MoneyController.instance.PlayerMoneyCount);
+        DuringGamePanelController.instance.transform.GetChild(0).gameObject.SetActive(false);
+        WinUIController.instance.transform.GetChild(0).gameObject.SetActive(true);
     }
 
-
-    
+    IEnumerator LoseStatusCo()
+    {
+        yield return new WaitForSeconds(2);
+        DuringGamePanelController.instance.transform.GetChild(0).gameObject.SetActive(false);
+        LoseStatusController.instance.transform.GetChild(0).gameObject.SetActive(true);
+    }
 }

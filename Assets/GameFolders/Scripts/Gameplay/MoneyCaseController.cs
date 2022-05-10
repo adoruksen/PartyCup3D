@@ -20,7 +20,6 @@ public class MoneyCaseController : MonoBehaviour
 
     public void MoneyOpener(int count)
     {
-        //a??k de?ilse a?, a??ksa i yi artt?r
 
         //count/levelMoney
 
